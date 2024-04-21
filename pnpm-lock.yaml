@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  dayjs:
+    specifier: ^1.11.10
+    version: 1.11.10
   valibot:
     specifier: ^0.30.0
     version: 0.30.0
@@ -19,15 +22,9 @@ devDependencies:
   '@graphql-codegen/cli':
     specifier: ^5.0.2
     version: 5.0.2(@types/node@20.12.7)(graphql@16.8.1)(typescript@5.4.5)
-  '@graphql-codegen/typescript':
-    specifier: ^4.0.4
-    version: 4.0.6(graphql@16.8.1)
   '@graphql-codegen/typescript-generic-sdk':
     specifier: ^4.0.1
     version: 4.0.1(graphql-tag@2.12.6)(graphql@16.8.1)
-  '@graphql-codegen/typescript-operations':
-    specifier: ^4.1.2
-    version: 4.2.0(graphql@16.8.1)
   '@types/eslint':
     specifier: ^8.56.10
     version: 8.56.10
@@ -55,6 +52,9 @@ devDependencies:
   graphql:
     specifier: ^16.8.1
     version: 16.8.1
+  graphql-tag:
+    specifier: ^2.12.6
+    version: 2.12.6(graphql@16.8.1)
   postcss:
     specifier: ^8.4.38
     version: 8.4.38
@@ -3172,6 +3172,10 @@ packages:
   /dataloader@2.2.2:
     resolution: {integrity: sha512-8YnDaaf7N3k/q5HnTJVuzSyLETjoZjVmHc4AeKAzOvKHEFQKcn64OKBfzHYtE9zGjctNM7V9I0MfnUVLpi7M5g==}
     dev: true
+
+  /dayjs@1.11.10:
+    resolution: {integrity: sha512-vjAczensTgRcqDERK0SR2XMwsF/tSvnvlv6VcF2GIhg6Sx4yOIt/irsr1RDJsKiIyBzJDpCoXiWWq28MqH2cnQ==}
+    dev: false
 
   /debounce@1.2.1:
     resolution: {integrity: sha512-XRRe6Glud4rd/ZGQfiV1ruXSfbvfJedlV9Y6zOlP+2K04vBYiJEte6stfFkCP03aMnY5tsipamumUjL14fofug==}

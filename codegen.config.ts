@@ -4,18 +4,11 @@ import "dotenv/config";
 const config: CodegenConfig = {
   overwrite: true,
   schema: process.env.VITE_WORDPRESS_GRAPHQL_ENDPOINT,
+  documents: ["src/queries/**/*"],
   generates: {
     "src/gql/": {
       preset: "client",
-      config: { enumsAsConst: true },
-      plugins: [
-        "typescript",
-        "typescript-operations",
-        "typescript-generic-sdk",
-      ],
-    },
-    "src/gql/schema.graphql": {
-      plugins: ["schema-ast"],
+      plugins: ["typescript-generic-sdk"],
     },
   },
 };
