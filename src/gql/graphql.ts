@@ -10934,6 +10934,394 @@ export type WritingSettings = {
   useSmilies?: Maybe<Scalars["Boolean"]["output"]>;
 };
 
+export type AllCategoriesQueryVariables = Exact<{ [key: string]: never }>;
+
+export type AllCategoriesQuery = {
+  __typename?: "RootQuery";
+  categories?: {
+    __typename?: "RootQueryToCategoryConnection";
+    edges: Array<{
+      __typename?: "RootQueryToCategoryConnectionEdge";
+      node: {
+        __typename?: "Category";
+        databaseId: number;
+        description?: string | null;
+        id: string;
+        name?: string | null;
+        slug?: string | null;
+      };
+    }>;
+  } | null;
+};
+
+export type CategoryBySlugQueryVariables = Exact<{
+  slug: Scalars["ID"]["input"];
+}>;
+
+export type CategoryBySlugQuery = {
+  __typename?: "RootQuery";
+  category?: {
+    __typename?: "Category";
+    databaseId: number;
+    description?: string | null;
+    id: string;
+    name?: string | null;
+    slug?: string | null;
+  } | null;
+};
+
+export type CategorySeoBySlugQueryVariables = Exact<{
+  slug: Scalars["ID"]["input"];
+}>;
+
+export type CategorySeoBySlugQuery = {
+  __typename?: "RootQuery";
+  category?: {
+    __typename?: "Category";
+    id: string;
+    seo?: {
+      __typename?: "TaxonomySEO";
+      canonical?: string | null;
+      metaDesc?: string | null;
+      metaRobotsNofollow?: string | null;
+      metaRobotsNoindex?: string | null;
+      opengraphAuthor?: string | null;
+      opengraphDescription?: string | null;
+      opengraphModifiedTime?: string | null;
+      opengraphPublishedTime?: string | null;
+      opengraphPublisher?: string | null;
+      opengraphTitle?: string | null;
+      opengraphType?: string | null;
+      title?: string | null;
+      twitterDescription?: string | null;
+      twitterTitle?: string | null;
+      twitterImage?: {
+        __typename?: "MediaItem";
+        altText?: string | null;
+        sourceUrl?: string | null;
+        mediaDetails?: {
+          __typename?: "MediaDetails";
+          width?: number | null;
+          height?: number | null;
+        } | null;
+      } | null;
+      opengraphImage?: {
+        __typename?: "MediaItem";
+        altText?: string | null;
+        sourceUrl?: string | null;
+        mediaDetails?: {
+          __typename?: "MediaDetails";
+          height?: number | null;
+          width?: number | null;
+        } | null;
+      } | null;
+    } | null;
+  } | null;
+};
+
+export type AllMenusQueryVariables = Exact<{ [key: string]: never }>;
+
+export type AllMenusQuery = {
+  __typename?: "RootQuery";
+  menus?: {
+    __typename?: "RootQueryToMenuConnection";
+    edges: Array<{
+      __typename?: "RootQueryToMenuConnectionEdge";
+      node: {
+        __typename?: "Menu";
+        id: string;
+        name?: string | null;
+        slug?: string | null;
+        locations?: Array<MenuLocationEnum | null> | null;
+        menuItems?: {
+          __typename?: "MenuToMenuItemConnection";
+          edges: Array<{
+            __typename?: "MenuToMenuItemConnectionEdge";
+            node: {
+              __typename?: "MenuItem";
+              cssClasses?: Array<string | null> | null;
+              id: string;
+              parentId?: string | null;
+              label?: string | null;
+              title?: string | null;
+              target?: string | null;
+              path?: string | null;
+            };
+          }>;
+        } | null;
+      };
+    }>;
+  } | null;
+};
+
+export type PageFieldsFragment = {
+  __typename?: "Page";
+  id: string;
+  menuOrder?: number | null;
+  slug?: string | null;
+  title?: string | null;
+  uri?: string | null;
+  children?: {
+    __typename?: "HierarchicalContentNodeToContentNodeChildrenConnection";
+    edges: Array<{
+      __typename?: "HierarchicalContentNodeToContentNodeChildrenConnectionEdge";
+      node:
+        | {
+            __typename?: "MediaItem";
+            id: string;
+            slug?: string | null;
+            uri?: string | null;
+          }
+        | {
+            __typename?: "Page";
+            id: string;
+            title?: string | null;
+            slug?: string | null;
+            uri?: string | null;
+          }
+        | {
+            __typename?: "Post";
+            id: string;
+            slug?: string | null;
+            uri?: string | null;
+          }
+        | {
+            __typename?: "Tour";
+            id: string;
+            slug?: string | null;
+            uri?: string | null;
+          };
+    }>;
+  } | null;
+  parent?: {
+    __typename?: "HierarchicalContentNodeToParentContentNodeConnectionEdge";
+    node:
+      | {
+          __typename?: "MediaItem";
+          id: string;
+          slug?: string | null;
+          uri?: string | null;
+        }
+      | {
+          __typename?: "Page";
+          title?: string | null;
+          id: string;
+          slug?: string | null;
+          uri?: string | null;
+        }
+      | {
+          __typename?: "Post";
+          id: string;
+          slug?: string | null;
+          uri?: string | null;
+        }
+      | {
+          __typename?: "Tour";
+          id: string;
+          slug?: string | null;
+          uri?: string | null;
+        };
+  } | null;
+} & { " $fragmentName"?: "PageFieldsFragment" };
+
+export type AllPagesIndexQueryVariables = Exact<{ [key: string]: never }>;
+
+export type AllPagesIndexQuery = {
+  __typename?: "RootQuery";
+  pages?: {
+    __typename?: "RootQueryToPageConnection";
+    edges: Array<{
+      __typename?: "RootQueryToPageConnectionEdge";
+      node: { __typename?: "Page" } & {
+        " $fragmentRefs"?: { PageFieldsFragment: PageFieldsFragment };
+      };
+    }>;
+  } | null;
+};
+
+export type AllPagesArchiveQueryVariables = Exact<{ [key: string]: never }>;
+
+export type AllPagesArchiveQuery = {
+  __typename?: "RootQuery";
+  pages?: {
+    __typename?: "RootQueryToPageConnection";
+    edges: Array<{
+      __typename?: "RootQueryToPageConnectionEdge";
+      node: { __typename?: "Page" } & {
+        " $fragmentRefs"?: { PageFieldsFragment: PageFieldsFragment };
+      };
+    }>;
+  } | null;
+};
+
+export type AllPagesQueryVariables = Exact<{ [key: string]: never }>;
+
+export type AllPagesQuery = {
+  __typename?: "RootQuery";
+  pages?: {
+    __typename?: "RootQueryToPageConnection";
+    edges: Array<{
+      __typename?: "RootQueryToPageConnectionEdge";
+      node: {
+        __typename?: "Page";
+        content?: string | null;
+        featuredImage?: {
+          __typename?: "NodeWithFeaturedImageToMediaItemConnectionEdge";
+          node: {
+            __typename?: "MediaItem";
+            altText?: string | null;
+            caption?: string | null;
+            id: string;
+            sizes?: string | null;
+            sourceUrl?: string | null;
+            srcSet?: string | null;
+          };
+        } | null;
+      } & { " $fragmentRefs"?: { PageFieldsFragment: PageFieldsFragment } };
+    }>;
+  } | null;
+};
+
+export type PageByUriQueryVariables = Exact<{
+  uri: Scalars["ID"]["input"];
+}>;
+
+export type PageByUriQuery = {
+  __typename?: "RootQuery";
+  page?: {
+    __typename?: "Page";
+    content?: string | null;
+    id: string;
+    menuOrder?: number | null;
+    slug?: string | null;
+    title?: string | null;
+    uri?: string | null;
+    children?: {
+      __typename?: "HierarchicalContentNodeToContentNodeChildrenConnection";
+      edges: Array<{
+        __typename?: "HierarchicalContentNodeToContentNodeChildrenConnectionEdge";
+        node:
+          | {
+              __typename?: "MediaItem";
+              id: string;
+              slug?: string | null;
+              uri?: string | null;
+            }
+          | {
+              __typename?: "Page";
+              id: string;
+              title?: string | null;
+              slug?: string | null;
+              uri?: string | null;
+            }
+          | {
+              __typename?: "Post";
+              id: string;
+              slug?: string | null;
+              uri?: string | null;
+            }
+          | {
+              __typename?: "Tour";
+              id: string;
+              slug?: string | null;
+              uri?: string | null;
+            };
+      }>;
+    } | null;
+    featuredImage?: {
+      __typename?: "NodeWithFeaturedImageToMediaItemConnectionEdge";
+      node: {
+        __typename?: "MediaItem";
+        altText?: string | null;
+        caption?: string | null;
+        id: string;
+        sizes?: string | null;
+        sourceUrl?: string | null;
+        srcSet?: string | null;
+      };
+    } | null;
+    parent?: {
+      __typename?: "HierarchicalContentNodeToParentContentNodeConnectionEdge";
+      node:
+        | {
+            __typename?: "MediaItem";
+            id: string;
+            slug?: string | null;
+            uri?: string | null;
+          }
+        | {
+            __typename?: "Page";
+            title?: string | null;
+            id: string;
+            slug?: string | null;
+            uri?: string | null;
+          }
+        | {
+            __typename?: "Post";
+            id: string;
+            slug?: string | null;
+            uri?: string | null;
+          }
+        | {
+            __typename?: "Tour";
+            id: string;
+            slug?: string | null;
+            uri?: string | null;
+          };
+    } | null;
+  } | null;
+};
+
+export type PageSeoByUriQueryVariables = Exact<{
+  uri: Scalars["ID"]["input"];
+}>;
+
+export type PageSeoByUriQuery = {
+  __typename?: "RootQuery";
+  page?: {
+    __typename?: "Page";
+    id: string;
+    seo?: {
+      __typename?: "PostTypeSEO";
+      canonical?: string | null;
+      metaDesc?: string | null;
+      metaRobotsNofollow?: string | null;
+      metaRobotsNoindex?: string | null;
+      opengraphAuthor?: string | null;
+      opengraphDescription?: string | null;
+      opengraphModifiedTime?: string | null;
+      opengraphPublishedTime?: string | null;
+      opengraphPublisher?: string | null;
+      opengraphTitle?: string | null;
+      opengraphType?: string | null;
+      readingTime?: number | null;
+      title?: string | null;
+      twitterDescription?: string | null;
+      twitterTitle?: string | null;
+      twitterImage?: {
+        __typename?: "MediaItem";
+        altText?: string | null;
+        sourceUrl?: string | null;
+        mediaDetails?: {
+          __typename?: "MediaDetails";
+          width?: number | null;
+          height?: number | null;
+        } | null;
+      } | null;
+      opengraphImage?: {
+        __typename?: "MediaItem";
+        altText?: string | null;
+        sourceUrl?: string | null;
+        mediaDetails?: {
+          __typename?: "MediaDetails";
+          height?: number | null;
+          width?: number | null;
+        } | null;
+      } | null;
+    } | null;
+  } | null;
+};
+
 export type PostFieldsFragment = {
   __typename?: "Post";
   id: string;
@@ -10957,6 +11345,52 @@ export type PostFieldsFragment = {
     }>;
   } | null;
 } & { " $fragmentName"?: "PostFieldsFragment" };
+
+export type AllPostsIndexQueryVariables = Exact<{ [key: string]: never }>;
+
+export type AllPostsIndexQuery = {
+  __typename?: "RootQuery";
+  posts?: {
+    __typename?: "RootQueryToPostConnection";
+    edges: Array<{
+      __typename?: "RootQueryToPostConnectionEdge";
+      node: { __typename?: "Post" } & {
+        " $fragmentRefs"?: { PostFieldsFragment: PostFieldsFragment };
+      };
+    }>;
+  } | null;
+};
+
+export type AllPostsArchiveQueryVariables = Exact<{ [key: string]: never }>;
+
+export type AllPostsArchiveQuery = {
+  __typename?: "RootQuery";
+  posts?: {
+    __typename?: "RootQueryToPostConnection";
+    edges: Array<{
+      __typename?: "RootQueryToPostConnectionEdge";
+      node: {
+        __typename?: "Post";
+        excerpt?: string | null;
+        author?: {
+          __typename?: "NodeWithAuthorToUserConnectionEdge";
+          node: {
+            __typename?: "User";
+            id: string;
+            name?: string | null;
+            slug?: string | null;
+            avatar?: {
+              __typename?: "Avatar";
+              height?: number | null;
+              url?: string | null;
+              width?: number | null;
+            } | null;
+          };
+        } | null;
+      } & { " $fragmentRefs"?: { PostFieldsFragment: PostFieldsFragment } };
+    }>;
+  } | null;
+};
 
 export type AllPostsQueryVariables = Exact<{ [key: string]: never }>;
 
@@ -11003,6 +11437,453 @@ export type AllPostsQuery = {
   } | null;
 };
 
+export type PostBySlugQueryVariables = Exact<{
+  slug: Scalars["ID"]["input"];
+}>;
+
+export type PostBySlugQuery = {
+  __typename?: "RootQuery";
+  post?: {
+    __typename?: "Post";
+    id: string;
+    content?: string | null;
+    date?: string | null;
+    excerpt?: string | null;
+    modified?: string | null;
+    databaseId: number;
+    title?: string | null;
+    slug?: string | null;
+    isSticky: boolean;
+    author?: {
+      __typename?: "NodeWithAuthorToUserConnectionEdge";
+      node: {
+        __typename?: "User";
+        id: string;
+        name?: string | null;
+        slug?: string | null;
+        avatar?: {
+          __typename?: "Avatar";
+          height?: number | null;
+          url?: string | null;
+          width?: number | null;
+        } | null;
+      };
+    } | null;
+    categories?: {
+      __typename?: "PostToCategoryConnection";
+      edges: Array<{
+        __typename?: "PostToCategoryConnectionEdge";
+        node: {
+          __typename?: "Category";
+          databaseId: number;
+          id: string;
+          name?: string | null;
+          slug?: string | null;
+        };
+      }>;
+    } | null;
+    featuredImage?: {
+      __typename?: "NodeWithFeaturedImageToMediaItemConnectionEdge";
+      node: {
+        __typename?: "MediaItem";
+        altText?: string | null;
+        caption?: string | null;
+        sourceUrl?: string | null;
+        srcSet?: string | null;
+        sizes?: string | null;
+        id: string;
+      };
+    } | null;
+  } | null;
+};
+
+export type PostsByCategoryIdIndexQueryVariables = Exact<{
+  categoryId: Scalars["Int"]["input"];
+}>;
+
+export type PostsByCategoryIdIndexQuery = {
+  __typename?: "RootQuery";
+  posts?: {
+    __typename?: "RootQueryToPostConnection";
+    edges: Array<{
+      __typename?: "RootQueryToPostConnectionEdge";
+      node: { __typename?: "Post" } & {
+        " $fragmentRefs"?: { PostFieldsFragment: PostFieldsFragment };
+      };
+    }>;
+  } | null;
+};
+
+export type PostsByCategoryIdArchiveQueryVariables = Exact<{
+  categoryId: Scalars["Int"]["input"];
+}>;
+
+export type PostsByCategoryIdArchiveQuery = {
+  __typename?: "RootQuery";
+  posts?: {
+    __typename?: "RootQueryToPostConnection";
+    edges: Array<{
+      __typename?: "RootQueryToPostConnectionEdge";
+      node: {
+        __typename?: "Post";
+        excerpt?: string | null;
+        author?: {
+          __typename?: "NodeWithAuthorToUserConnectionEdge";
+          node: {
+            __typename?: "User";
+            id: string;
+            name?: string | null;
+            slug?: string | null;
+            avatar?: {
+              __typename?: "Avatar";
+              height?: number | null;
+              url?: string | null;
+              width?: number | null;
+            } | null;
+          };
+        } | null;
+      } & { " $fragmentRefs"?: { PostFieldsFragment: PostFieldsFragment } };
+    }>;
+  } | null;
+};
+
+export type PostsByCategoryIdQueryVariables = Exact<{
+  categoryId: Scalars["Int"]["input"];
+}>;
+
+export type PostsByCategoryIdQuery = {
+  __typename?: "RootQuery";
+  posts?: {
+    __typename?: "RootQueryToPostConnection";
+    edges: Array<{
+      __typename?: "RootQueryToPostConnectionEdge";
+      node: {
+        __typename?: "Post";
+        content?: string | null;
+        excerpt?: string | null;
+        modified?: string | null;
+        author?: {
+          __typename?: "NodeWithAuthorToUserConnectionEdge";
+          node: {
+            __typename?: "User";
+            id: string;
+            name?: string | null;
+            slug?: string | null;
+            avatar?: {
+              __typename?: "Avatar";
+              height?: number | null;
+              url?: string | null;
+              width?: number | null;
+            } | null;
+          };
+        } | null;
+        featuredImage?: {
+          __typename?: "NodeWithFeaturedImageToMediaItemConnectionEdge";
+          node: {
+            __typename?: "MediaItem";
+            altText?: string | null;
+            caption?: string | null;
+            id: string;
+            sizes?: string | null;
+            sourceUrl?: string | null;
+            srcSet?: string | null;
+          };
+        } | null;
+      } & { " $fragmentRefs"?: { PostFieldsFragment: PostFieldsFragment } };
+    }>;
+  } | null;
+};
+
+export type PostByAuthorSlugIndexQueryVariables = Exact<{
+  slug: Scalars["String"]["input"];
+}>;
+
+export type PostByAuthorSlugIndexQuery = {
+  __typename?: "RootQuery";
+  posts?: {
+    __typename?: "RootQueryToPostConnection";
+    edges: Array<{
+      __typename?: "RootQueryToPostConnectionEdge";
+      node: { __typename?: "Post" } & {
+        " $fragmentRefs"?: { PostFieldsFragment: PostFieldsFragment };
+      };
+    }>;
+  } | null;
+};
+
+export type PostByAuthorSlugArchiveQueryVariables = Exact<{
+  slug: Scalars["String"]["input"];
+}>;
+
+export type PostByAuthorSlugArchiveQuery = {
+  __typename?: "RootQuery";
+  posts?: {
+    __typename?: "RootQueryToPostConnection";
+    edges: Array<{
+      __typename?: "RootQueryToPostConnectionEdge";
+      node: { __typename?: "Post"; excerpt?: string | null } & {
+        " $fragmentRefs"?: { PostFieldsFragment: PostFieldsFragment };
+      };
+    }>;
+  } | null;
+};
+
+export type PostByAuthorSlugQueryVariables = Exact<{
+  slug: Scalars["String"]["input"];
+}>;
+
+export type PostByAuthorSlugQuery = {
+  __typename?: "RootQuery";
+  posts?: {
+    __typename?: "RootQueryToPostConnection";
+    edges: Array<{
+      __typename?: "RootQueryToPostConnectionEdge";
+      node: {
+        __typename?: "Post";
+        excerpt?: string | null;
+        modified?: string | null;
+        featuredImage?: {
+          __typename?: "NodeWithFeaturedImageToMediaItemConnectionEdge";
+          node: {
+            __typename?: "MediaItem";
+            altText?: string | null;
+            caption?: string | null;
+            id: string;
+            sizes?: string | null;
+            sourceUrl?: string | null;
+            srcSet?: string | null;
+          };
+        } | null;
+      } & { " $fragmentRefs"?: { PostFieldsFragment: PostFieldsFragment } };
+    }>;
+  } | null;
+};
+
+export type PostSeoBySlugQueryVariables = Exact<{
+  slug: Scalars["ID"]["input"];
+}>;
+
+export type PostSeoBySlugQuery = {
+  __typename?: "RootQuery";
+  post?: {
+    __typename?: "Post";
+    id: string;
+    seo?: {
+      __typename?: "PostTypeSEO";
+      canonical?: string | null;
+      metaDesc?: string | null;
+      metaRobotsNofollow?: string | null;
+      metaRobotsNoindex?: string | null;
+      opengraphAuthor?: string | null;
+      opengraphDescription?: string | null;
+      opengraphModifiedTime?: string | null;
+      opengraphPublishedTime?: string | null;
+      opengraphPublisher?: string | null;
+      opengraphTitle?: string | null;
+      opengraphType?: string | null;
+      readingTime?: number | null;
+      title?: string | null;
+      twitterDescription?: string | null;
+      twitterTitle?: string | null;
+      twitterImage?: {
+        __typename?: "MediaItem";
+        altText?: string | null;
+        sourceUrl?: string | null;
+        mediaDetails?: {
+          __typename?: "MediaDetails";
+          width?: number | null;
+          height?: number | null;
+        } | null;
+      } | null;
+      opengraphImage?: {
+        __typename?: "MediaItem";
+        altText?: string | null;
+        sourceUrl?: string | null;
+        mediaDetails?: {
+          __typename?: "MediaDetails";
+          height?: number | null;
+          width?: number | null;
+        } | null;
+      } | null;
+    } | null;
+  } | null;
+};
+
+export type PostPerPageQueryVariables = Exact<{ [key: string]: never }>;
+
+export type PostPerPageQuery = {
+  __typename?: "RootQuery";
+  allSettings?: {
+    __typename?: "Settings";
+    readingSettingsPostsPerPage?: number | null;
+  } | null;
+};
+
+export type SiteDataQueryVariables = Exact<{ [key: string]: never }>;
+
+export type SiteDataQuery = {
+  __typename?: "RootQuery";
+  generalSettings?: {
+    __typename?: "GeneralSettings";
+    description?: string | null;
+    language?: string | null;
+    title?: string | null;
+  } | null;
+};
+
+export type SeoDataQueryVariables = Exact<{ [key: string]: never }>;
+
+export type SeoDataQuery = {
+  __typename?: "RootQuery";
+  seo?: {
+    __typename?: "SEOConfig";
+    webmaster?: {
+      __typename?: "SEOWebmaster";
+      yandexVerify?: string | null;
+      msVerify?: string | null;
+      googleVerify?: string | null;
+      baiduVerify?: string | null;
+    } | null;
+    social?: {
+      __typename?: "SEOSocial";
+      youTube?: { __typename?: "SEOSocialYoutube"; url?: string | null } | null;
+      wikipedia?: {
+        __typename?: "SEOSocialWikipedia";
+        url?: string | null;
+      } | null;
+      twitter?: {
+        __typename?: "SEOSocialTwitter";
+        username?: string | null;
+        cardType?: SeoCardType | null;
+      } | null;
+      pinterest?: {
+        __typename?: "SEOSocialPinterest";
+        metaTag?: string | null;
+        url?: string | null;
+      } | null;
+      mySpace?: { __typename?: "SEOSocialMySpace"; url?: string | null } | null;
+      linkedIn?: {
+        __typename?: "SEOSocialLinkedIn";
+        url?: string | null;
+      } | null;
+      instagram?: {
+        __typename?: "SEOSocialInstagram";
+        url?: string | null;
+      } | null;
+      facebook?: {
+        __typename?: "SEOSocialFacebook";
+        url?: string | null;
+        defaultImage?: {
+          __typename?: "MediaItem";
+          altText?: string | null;
+          sourceUrl?: string | null;
+          mediaDetails?: {
+            __typename?: "MediaDetails";
+            height?: number | null;
+            width?: number | null;
+          } | null;
+        } | null;
+      } | null;
+    } | null;
+  } | null;
+};
+
+export type AllUsersQueryVariables = Exact<{ [key: string]: never }>;
+
+export type AllUsersQuery = {
+  __typename?: "RootQuery";
+  users?: {
+    __typename?: "RootQueryToUserConnection";
+    edges: Array<{
+      __typename?: "RootQueryToUserConnectionEdge";
+      node: {
+        __typename?: "User";
+        description?: string | null;
+        id: string;
+        name?: string | null;
+        slug?: string | null;
+        avatar?: {
+          __typename?: "Avatar";
+          height?: number | null;
+          width?: number | null;
+          url?: string | null;
+        } | null;
+        roles?: {
+          __typename?: "UserToUserRoleConnection";
+          nodes: Array<{ __typename?: "UserRole"; name?: string | null }>;
+        } | null;
+      };
+    }>;
+  } | null;
+};
+
+export type AllUsersSeoQueryVariables = Exact<{ [key: string]: never }>;
+
+export type AllUsersSeoQuery = {
+  __typename?: "RootQuery";
+  users?: {
+    __typename?: "RootQueryToUserConnection";
+    edges: Array<{
+      __typename?: "RootQueryToUserConnectionEdge";
+      node: {
+        __typename?: "User";
+        id: string;
+        seo?: {
+          __typename?: "SEOUser";
+          metaDesc?: string | null;
+          metaRobotsNofollow?: string | null;
+          metaRobotsNoindex?: string | null;
+          title?: string | null;
+          social?: {
+            __typename?: "SEOUserSocial";
+            youTube?: string | null;
+            wikipedia?: string | null;
+            twitter?: string | null;
+            soundCloud?: string | null;
+            pinterest?: string | null;
+            mySpace?: string | null;
+            linkedIn?: string | null;
+            instagram?: string | null;
+            facebook?: string | null;
+          } | null;
+        } | null;
+      };
+    }>;
+  } | null;
+};
+
+export const PageFieldsFragmentDoc = gql`
+  fragment PageFields on Page {
+    children {
+      edges {
+        node {
+          id
+          slug
+          uri
+          ... on Page {
+            id
+            title
+          }
+        }
+      }
+    }
+    id
+    menuOrder
+    parent {
+      node {
+        id
+        slug
+        uri
+        ... on Page {
+          title
+        }
+      }
+    }
+    slug
+    title
+    uri
+  }
+`;
 export const PostFieldsFragmentDoc = gql`
   fragment PostFields on Post {
     id
@@ -11023,6 +11904,267 @@ export const PostFieldsFragmentDoc = gql`
     slug
     title
   }
+`;
+export const AllCategoriesDocument = gql`
+  query AllCategories {
+    categories(first: 10000) {
+      edges {
+        node {
+          databaseId
+          description
+          id
+          name
+          slug
+        }
+      }
+    }
+  }
+`;
+export const CategoryBySlugDocument = gql`
+  query CategoryBySlug($slug: ID!) {
+    category(id: $slug, idType: SLUG) {
+      databaseId
+      description
+      id
+      name
+      slug
+    }
+  }
+`;
+export const CategorySeoBySlugDocument = gql`
+  query CategorySEOBySlug($slug: ID!) {
+    category(id: $slug, idType: SLUG) {
+      id
+      seo {
+        canonical
+        metaDesc
+        metaRobotsNofollow
+        metaRobotsNoindex
+        opengraphAuthor
+        opengraphDescription
+        opengraphModifiedTime
+        opengraphPublishedTime
+        opengraphPublisher
+        opengraphTitle
+        opengraphType
+        title
+        twitterDescription
+        twitterTitle
+        twitterImage {
+          altText
+          sourceUrl
+          mediaDetails {
+            width
+            height
+          }
+        }
+        opengraphImage {
+          altText
+          sourceUrl
+          mediaDetails {
+            height
+            width
+          }
+        }
+      }
+    }
+  }
+`;
+export const AllMenusDocument = gql`
+  query AllMenus {
+    menus {
+      edges {
+        node {
+          id
+          menuItems {
+            edges {
+              node {
+                cssClasses
+                id
+                parentId
+                label
+                title
+                target
+                path
+              }
+            }
+          }
+          name
+          slug
+          locations
+        }
+      }
+    }
+  }
+`;
+export const AllPagesIndexDocument = gql`
+  query AllPagesIndex {
+    pages(first: 10000, where: { hasPassword: false }) {
+      edges {
+        node {
+          ...PageFields
+        }
+      }
+    }
+  }
+  ${PageFieldsFragmentDoc}
+`;
+export const AllPagesArchiveDocument = gql`
+  query AllPagesArchive {
+    pages(first: 10000, where: { hasPassword: false }) {
+      edges {
+        node {
+          ...PageFields
+        }
+      }
+    }
+  }
+  ${PageFieldsFragmentDoc}
+`;
+export const AllPagesDocument = gql`
+  query AllPages {
+    pages(first: 10000, where: { hasPassword: false }) {
+      edges {
+        node {
+          ...PageFields
+          content
+          featuredImage {
+            node {
+              altText
+              caption
+              id
+              sizes
+              sourceUrl
+              srcSet
+            }
+          }
+        }
+      }
+    }
+  }
+  ${PageFieldsFragmentDoc}
+`;
+export const PageByUriDocument = gql`
+  query PageByUri($uri: ID!) {
+    page(id: $uri, idType: URI) {
+      children {
+        edges {
+          node {
+            id
+            slug
+            uri
+            ... on Page {
+              id
+              title
+            }
+          }
+        }
+      }
+      content
+      featuredImage {
+        node {
+          altText
+          caption
+          id
+          sizes
+          sourceUrl
+          srcSet
+        }
+      }
+      id
+      menuOrder
+      parent {
+        node {
+          id
+          slug
+          uri
+          ... on Page {
+            title
+          }
+        }
+      }
+      slug
+      title
+      uri
+    }
+  }
+`;
+export const PageSeoByUriDocument = gql`
+  query PageSEOByUri($uri: ID!) {
+    page(id: $uri, idType: URI) {
+      id
+      seo {
+        canonical
+        metaDesc
+        metaRobotsNofollow
+        metaRobotsNoindex
+        opengraphAuthor
+        opengraphDescription
+        opengraphModifiedTime
+        opengraphPublishedTime
+        opengraphPublisher
+        opengraphTitle
+        opengraphType
+        readingTime
+        title
+        twitterDescription
+        twitterTitle
+        twitterImage {
+          altText
+          sourceUrl
+          mediaDetails {
+            width
+            height
+          }
+        }
+        opengraphImage {
+          altText
+          sourceUrl
+          mediaDetails {
+            height
+            width
+          }
+        }
+      }
+    }
+  }
+`;
+export const AllPostsIndexDocument = gql`
+  query AllPostsIndex {
+    posts(first: 10000, where: { hasPassword: false }) {
+      edges {
+        node {
+          ...PostFields
+        }
+      }
+    }
+  }
+  ${PostFieldsFragmentDoc}
+`;
+export const AllPostsArchiveDocument = gql`
+  query AllPostsArchive {
+    posts(first: 10000, where: { hasPassword: false }) {
+      edges {
+        node {
+          ...PostFields
+          author {
+            node {
+              avatar {
+                height
+                url
+                width
+              }
+              id
+              name
+              slug
+            }
+          }
+          excerpt
+        }
+      }
+    }
+  }
+  ${PostFieldsFragmentDoc}
 `;
 export const AllPostsDocument = gql`
   query AllPosts {
@@ -11061,6 +12203,332 @@ export const AllPostsDocument = gql`
   }
   ${PostFieldsFragmentDoc}
 `;
+export const PostBySlugDocument = gql`
+  query PostBySlug($slug: ID!) {
+    post(id: $slug, idType: SLUG) {
+      author {
+        node {
+          avatar {
+            height
+            url
+            width
+          }
+          id
+          name
+          slug
+        }
+      }
+      id
+      categories {
+        edges {
+          node {
+            databaseId
+            id
+            name
+            slug
+          }
+        }
+      }
+      content
+      date
+      excerpt
+      featuredImage {
+        node {
+          altText
+          caption
+          sourceUrl
+          srcSet
+          sizes
+          id
+        }
+      }
+      modified
+      databaseId
+      title
+      slug
+      isSticky
+    }
+  }
+`;
+export const PostsByCategoryIdIndexDocument = gql`
+  query PostsByCategoryIdIndex($categoryId: Int!) {
+    posts(where: { categoryId: $categoryId, hasPassword: false }) {
+      edges {
+        node {
+          ...PostFields
+        }
+      }
+    }
+  }
+  ${PostFieldsFragmentDoc}
+`;
+export const PostsByCategoryIdArchiveDocument = gql`
+  query PostsByCategoryIdArchive($categoryId: Int!) {
+    posts(where: { categoryId: $categoryId, hasPassword: false }) {
+      edges {
+        node {
+          ...PostFields
+          author {
+            node {
+              avatar {
+                height
+                url
+                width
+              }
+              id
+              name
+              slug
+            }
+          }
+          excerpt
+        }
+      }
+    }
+  }
+  ${PostFieldsFragmentDoc}
+`;
+export const PostsByCategoryIdDocument = gql`
+  query PostsByCategoryId($categoryId: Int!) {
+    posts(where: { categoryId: $categoryId, hasPassword: false }) {
+      edges {
+        node {
+          ...PostFields
+          author {
+            node {
+              avatar {
+                height
+                url
+                width
+              }
+              id
+              name
+              slug
+            }
+          }
+          content
+          excerpt
+          featuredImage {
+            node {
+              altText
+              caption
+              id
+              sizes
+              sourceUrl
+              srcSet
+            }
+          }
+          modified
+        }
+      }
+    }
+  }
+  ${PostFieldsFragmentDoc}
+`;
+export const PostByAuthorSlugIndexDocument = gql`
+  query PostByAuthorSlugIndex($slug: String!) {
+    posts(where: { authorName: $slug, hasPassword: false }) {
+      edges {
+        node {
+          ...PostFields
+        }
+      }
+    }
+  }
+  ${PostFieldsFragmentDoc}
+`;
+export const PostByAuthorSlugArchiveDocument = gql`
+  query PostByAuthorSlugArchive($slug: String!) {
+    posts(where: { authorName: $slug, hasPassword: false }) {
+      edges {
+        node {
+          ...PostFields
+          excerpt
+        }
+      }
+    }
+  }
+  ${PostFieldsFragmentDoc}
+`;
+export const PostByAuthorSlugDocument = gql`
+  query PostByAuthorSlug($slug: String!) {
+    posts(where: { authorName: $slug, hasPassword: false }) {
+      edges {
+        node {
+          ...PostFields
+          excerpt
+          featuredImage {
+            node {
+              altText
+              caption
+              id
+              sizes
+              sourceUrl
+              srcSet
+            }
+          }
+          modified
+        }
+      }
+    }
+  }
+  ${PostFieldsFragmentDoc}
+`;
+export const PostSeoBySlugDocument = gql`
+  query PostSEOBySlug($slug: ID!) {
+    post(id: $slug, idType: SLUG) {
+      id
+      seo {
+        canonical
+        metaDesc
+        metaRobotsNofollow
+        metaRobotsNoindex
+        opengraphAuthor
+        opengraphDescription
+        opengraphModifiedTime
+        opengraphPublishedTime
+        opengraphPublisher
+        opengraphTitle
+        opengraphType
+        readingTime
+        title
+        twitterDescription
+        twitterTitle
+        twitterImage {
+          altText
+          sourceUrl
+          mediaDetails {
+            width
+            height
+          }
+        }
+        opengraphImage {
+          altText
+          sourceUrl
+          mediaDetails {
+            height
+            width
+          }
+        }
+      }
+    }
+  }
+`;
+export const PostPerPageDocument = gql`
+  query PostPerPage {
+    allSettings {
+      readingSettingsPostsPerPage
+    }
+  }
+`;
+export const SiteDataDocument = gql`
+  query SiteData {
+    generalSettings {
+      description
+      language
+      title
+    }
+  }
+`;
+export const SeoDataDocument = gql`
+  query SeoData {
+    seo {
+      webmaster {
+        yandexVerify
+        msVerify
+        googleVerify
+        baiduVerify
+      }
+      social {
+        youTube {
+          url
+        }
+        wikipedia {
+          url
+        }
+        twitter {
+          username
+          cardType
+        }
+        pinterest {
+          metaTag
+          url
+        }
+        mySpace {
+          url
+        }
+        linkedIn {
+          url
+        }
+        instagram {
+          url
+        }
+        facebook {
+          url
+          defaultImage {
+            altText
+            sourceUrl
+            mediaDetails {
+              height
+              width
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+export const AllUsersDocument = gql`
+  query AllUsers {
+    users(first: 10000) {
+      edges {
+        node {
+          avatar {
+            height
+            width
+            url
+          }
+          description
+          id
+          name
+          roles {
+            nodes {
+              name
+            }
+          }
+          slug
+        }
+      }
+    }
+  }
+`;
+export const AllUsersSeoDocument = gql`
+  query AllUsersSeo {
+    users(first: 10000) {
+      edges {
+        node {
+          id
+          seo {
+            metaDesc
+            metaRobotsNofollow
+            metaRobotsNoindex
+            title
+            social {
+              youTube
+              wikipedia
+              twitter
+              soundCloud
+              pinterest
+              mySpace
+              linkedIn
+              instagram
+              facebook
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 export type Requester<C = {}> = <R, V>(
   doc: DocumentNode,
   vars?: V,
@@ -11068,6 +12536,116 @@ export type Requester<C = {}> = <R, V>(
 ) => Promise<R> | AsyncIterable<R>;
 export function getSdk<C>(requester: Requester<C>) {
   return {
+    AllCategories(
+      variables?: AllCategoriesQueryVariables,
+      options?: C,
+    ): Promise<AllCategoriesQuery> {
+      return requester<AllCategoriesQuery, AllCategoriesQueryVariables>(
+        AllCategoriesDocument,
+        variables,
+        options,
+      ) as Promise<AllCategoriesQuery>;
+    },
+    CategoryBySlug(
+      variables: CategoryBySlugQueryVariables,
+      options?: C,
+    ): Promise<CategoryBySlugQuery> {
+      return requester<CategoryBySlugQuery, CategoryBySlugQueryVariables>(
+        CategoryBySlugDocument,
+        variables,
+        options,
+      ) as Promise<CategoryBySlugQuery>;
+    },
+    CategorySEOBySlug(
+      variables: CategorySeoBySlugQueryVariables,
+      options?: C,
+    ): Promise<CategorySeoBySlugQuery> {
+      return requester<CategorySeoBySlugQuery, CategorySeoBySlugQueryVariables>(
+        CategorySeoBySlugDocument,
+        variables,
+        options,
+      ) as Promise<CategorySeoBySlugQuery>;
+    },
+    AllMenus(
+      variables?: AllMenusQueryVariables,
+      options?: C,
+    ): Promise<AllMenusQuery> {
+      return requester<AllMenusQuery, AllMenusQueryVariables>(
+        AllMenusDocument,
+        variables,
+        options,
+      ) as Promise<AllMenusQuery>;
+    },
+    AllPagesIndex(
+      variables?: AllPagesIndexQueryVariables,
+      options?: C,
+    ): Promise<AllPagesIndexQuery> {
+      return requester<AllPagesIndexQuery, AllPagesIndexQueryVariables>(
+        AllPagesIndexDocument,
+        variables,
+        options,
+      ) as Promise<AllPagesIndexQuery>;
+    },
+    AllPagesArchive(
+      variables?: AllPagesArchiveQueryVariables,
+      options?: C,
+    ): Promise<AllPagesArchiveQuery> {
+      return requester<AllPagesArchiveQuery, AllPagesArchiveQueryVariables>(
+        AllPagesArchiveDocument,
+        variables,
+        options,
+      ) as Promise<AllPagesArchiveQuery>;
+    },
+    AllPages(
+      variables?: AllPagesQueryVariables,
+      options?: C,
+    ): Promise<AllPagesQuery> {
+      return requester<AllPagesQuery, AllPagesQueryVariables>(
+        AllPagesDocument,
+        variables,
+        options,
+      ) as Promise<AllPagesQuery>;
+    },
+    PageByUri(
+      variables: PageByUriQueryVariables,
+      options?: C,
+    ): Promise<PageByUriQuery> {
+      return requester<PageByUriQuery, PageByUriQueryVariables>(
+        PageByUriDocument,
+        variables,
+        options,
+      ) as Promise<PageByUriQuery>;
+    },
+    PageSEOByUri(
+      variables: PageSeoByUriQueryVariables,
+      options?: C,
+    ): Promise<PageSeoByUriQuery> {
+      return requester<PageSeoByUriQuery, PageSeoByUriQueryVariables>(
+        PageSeoByUriDocument,
+        variables,
+        options,
+      ) as Promise<PageSeoByUriQuery>;
+    },
+    AllPostsIndex(
+      variables?: AllPostsIndexQueryVariables,
+      options?: C,
+    ): Promise<AllPostsIndexQuery> {
+      return requester<AllPostsIndexQuery, AllPostsIndexQueryVariables>(
+        AllPostsIndexDocument,
+        variables,
+        options,
+      ) as Promise<AllPostsIndexQuery>;
+    },
+    AllPostsArchive(
+      variables?: AllPostsArchiveQueryVariables,
+      options?: C,
+    ): Promise<AllPostsArchiveQuery> {
+      return requester<AllPostsArchiveQuery, AllPostsArchiveQueryVariables>(
+        AllPostsArchiveDocument,
+        variables,
+        options,
+      ) as Promise<AllPostsArchiveQuery>;
+    },
     AllPosts(
       variables?: AllPostsQueryVariables,
       options?: C,
@@ -11077,6 +12655,148 @@ export function getSdk<C>(requester: Requester<C>) {
         variables,
         options,
       ) as Promise<AllPostsQuery>;
+    },
+    PostBySlug(
+      variables: PostBySlugQueryVariables,
+      options?: C,
+    ): Promise<PostBySlugQuery> {
+      return requester<PostBySlugQuery, PostBySlugQueryVariables>(
+        PostBySlugDocument,
+        variables,
+        options,
+      ) as Promise<PostBySlugQuery>;
+    },
+    PostsByCategoryIdIndex(
+      variables: PostsByCategoryIdIndexQueryVariables,
+      options?: C,
+    ): Promise<PostsByCategoryIdIndexQuery> {
+      return requester<
+        PostsByCategoryIdIndexQuery,
+        PostsByCategoryIdIndexQueryVariables
+      >(
+        PostsByCategoryIdIndexDocument,
+        variables,
+        options,
+      ) as Promise<PostsByCategoryIdIndexQuery>;
+    },
+    PostsByCategoryIdArchive(
+      variables: PostsByCategoryIdArchiveQueryVariables,
+      options?: C,
+    ): Promise<PostsByCategoryIdArchiveQuery> {
+      return requester<
+        PostsByCategoryIdArchiveQuery,
+        PostsByCategoryIdArchiveQueryVariables
+      >(
+        PostsByCategoryIdArchiveDocument,
+        variables,
+        options,
+      ) as Promise<PostsByCategoryIdArchiveQuery>;
+    },
+    PostsByCategoryId(
+      variables: PostsByCategoryIdQueryVariables,
+      options?: C,
+    ): Promise<PostsByCategoryIdQuery> {
+      return requester<PostsByCategoryIdQuery, PostsByCategoryIdQueryVariables>(
+        PostsByCategoryIdDocument,
+        variables,
+        options,
+      ) as Promise<PostsByCategoryIdQuery>;
+    },
+    PostByAuthorSlugIndex(
+      variables: PostByAuthorSlugIndexQueryVariables,
+      options?: C,
+    ): Promise<PostByAuthorSlugIndexQuery> {
+      return requester<
+        PostByAuthorSlugIndexQuery,
+        PostByAuthorSlugIndexQueryVariables
+      >(
+        PostByAuthorSlugIndexDocument,
+        variables,
+        options,
+      ) as Promise<PostByAuthorSlugIndexQuery>;
+    },
+    PostByAuthorSlugArchive(
+      variables: PostByAuthorSlugArchiveQueryVariables,
+      options?: C,
+    ): Promise<PostByAuthorSlugArchiveQuery> {
+      return requester<
+        PostByAuthorSlugArchiveQuery,
+        PostByAuthorSlugArchiveQueryVariables
+      >(
+        PostByAuthorSlugArchiveDocument,
+        variables,
+        options,
+      ) as Promise<PostByAuthorSlugArchiveQuery>;
+    },
+    PostByAuthorSlug(
+      variables: PostByAuthorSlugQueryVariables,
+      options?: C,
+    ): Promise<PostByAuthorSlugQuery> {
+      return requester<PostByAuthorSlugQuery, PostByAuthorSlugQueryVariables>(
+        PostByAuthorSlugDocument,
+        variables,
+        options,
+      ) as Promise<PostByAuthorSlugQuery>;
+    },
+    PostSEOBySlug(
+      variables: PostSeoBySlugQueryVariables,
+      options?: C,
+    ): Promise<PostSeoBySlugQuery> {
+      return requester<PostSeoBySlugQuery, PostSeoBySlugQueryVariables>(
+        PostSeoBySlugDocument,
+        variables,
+        options,
+      ) as Promise<PostSeoBySlugQuery>;
+    },
+    PostPerPage(
+      variables?: PostPerPageQueryVariables,
+      options?: C,
+    ): Promise<PostPerPageQuery> {
+      return requester<PostPerPageQuery, PostPerPageQueryVariables>(
+        PostPerPageDocument,
+        variables,
+        options,
+      ) as Promise<PostPerPageQuery>;
+    },
+    SiteData(
+      variables?: SiteDataQueryVariables,
+      options?: C,
+    ): Promise<SiteDataQuery> {
+      return requester<SiteDataQuery, SiteDataQueryVariables>(
+        SiteDataDocument,
+        variables,
+        options,
+      ) as Promise<SiteDataQuery>;
+    },
+    SeoData(
+      variables?: SeoDataQueryVariables,
+      options?: C,
+    ): Promise<SeoDataQuery> {
+      return requester<SeoDataQuery, SeoDataQueryVariables>(
+        SeoDataDocument,
+        variables,
+        options,
+      ) as Promise<SeoDataQuery>;
+    },
+    AllUsers(
+      variables?: AllUsersQueryVariables,
+      options?: C,
+    ): Promise<AllUsersQuery> {
+      return requester<AllUsersQuery, AllUsersQueryVariables>(
+        AllUsersDocument,
+        variables,
+        options,
+      ) as Promise<AllUsersQuery>;
+    },
+    AllUsersSeo(
+      variables?: AllUsersSeoQueryVariables,
+      options?: C,
+    ): Promise<AllUsersSeoQuery> {
+      return requester<AllUsersSeoQuery, AllUsersSeoQueryVariables>(
+        AllUsersSeoDocument,
+        variables,
+        options,
+      ) as Promise<AllUsersSeoQuery>;
     },
   };
 }
