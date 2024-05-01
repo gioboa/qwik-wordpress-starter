@@ -30,8 +30,8 @@
     "qwik": "qwik"
   },
   "devDependencies": {
-    "@builder.io/qwik": "^1.5.2",
-    "@builder.io/qwik-city": "^1.5.2",
+    "@builder.io/qwik": "^1.5.3",
+    "@builder.io/qwik-city": "^1.5.3",
     "@graphql-codegen/cli": "^5.0.2",
     "@graphql-codegen/typescript-generic-sdk": "^4.0.1",
     "@types/eslint": "^8.56.10",
@@ -41,7 +41,7 @@
     "autoprefixer": "^10.4.19",
     "dotenv": "^16.4.5",
     "eslint": "8.57.0",
-    "eslint-plugin-qwik": "^1.5.2",
+    "eslint-plugin-qwik": "^1.5.3",
     "graphql": "^16.8.1",
     "graphql-tag": "^2.12.6",
     "postcss": "^8.4.38",
