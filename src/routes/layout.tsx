@@ -1,5 +1,5 @@
 import { component$, Slot } from "@builder.io/qwik";
-import type { RequestHandler } from "@builder.io/qwik-city";
+import type { DocumentHead, RequestHandler } from "@builder.io/qwik-city";
 import { Footer } from "~/components/Footer";
 import { Nav } from "~/components/Nav";
 
@@ -16,12 +16,22 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 
 export default component$(() => {
   return (
-    <div class="font-roboto bg-gray-100">
+    <div class="font-roboto h-full bg-gray-100">
       <Nav />
-      <main>
+      <main class="h-[calc(100%-120px)]">
         <Slot />
       </main>
       <Footer />
     </div>
   );
 });
+
+export const head: DocumentHead = {
+  title: "Qwik WordPress starter",
+  meta: [
+    {
+      name: "description",
+      content: "Qwik WordPress starter",
+    },
+  ],
+};
